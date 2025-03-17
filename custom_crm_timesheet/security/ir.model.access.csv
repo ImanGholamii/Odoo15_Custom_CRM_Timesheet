@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_custom_crm_timesheet_user,CRM Timesheet Access for Normal Users,model_custom_crm_timesheet,,1,1,1,0
+access_custom_crm_timesheet_manager,CRM Timesheet Access for Managers,model_custom_crm_timesheet,base.group_system,1,1,1,1

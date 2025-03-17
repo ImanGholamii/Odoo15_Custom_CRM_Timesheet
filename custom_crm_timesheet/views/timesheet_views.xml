@@ -1,0 +1,43 @@
+<odoo>
+    <record id="view_custom_crm_timesheet_form" model="ir.ui.view">
+        <field name="name">custom.crm.timesheet.form</field>
+        <field name="model">custom.crm.timesheet</field>
+        <field name="arch" type="xml">
+            <form string="Timesheet Entry">
+                <sheet>
+                    <group>
+                        <field name="date" widget="datetime"/>
+                        <field name="employee_id" readonly="1"/>
+                        <field name="lead_id"/>
+                        <field name="name"/>
+                        <field name="duration" widget="float_time"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_custom_crm_timesheet_tree" model="ir.ui.view">
+        <field name="name">custom.crm.timesheet.tree</field>
+        <field name="model">custom.crm.timesheet</field>
+        <field name="arch" type="xml">
+            <tree string="Timesheets">
+                <field name="date" widget="datetime"/>
+                <field name="employee_id"/>
+                <field name="lead_id"/>
+                <field name="name"/>
+                <field name="duration" widget="float_time" sum="Total"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="custom_crm_timesheet_action" model="ir.actions.act_window">
+        <field name="name">CRM Timesheets</field>
+        <field name="res_model">custom.crm.timesheet</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="custom_crm_timesheet_menu" name="Timesheets" parent="crm.crm_menu_root"
+              action="custom_crm_timesheet_action"/>
+</odoo>
